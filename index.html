@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="row">
+        <section class="col-md-4">
+          <h2 class="py-3 mt-3 h3 text-center">Movies catalog</h2>
+
+          <form class="mb-4 js-search-form" action="https://echo.htmlacademy.ru" method="GET" autocomplete="off">
+            <input class="mb-3 form-control js-search-form__title-input" name="search" type="search" aria-label="Search"
+              placeholder="The Incredible Hulk">
+
+            <input class="mb-3 form-control js-search-form__rating-input" name="min_rating" type="number" step="any"
+              aria-label="Minimum rating" placeholder="7.5" value="6">
+
+            <select class="mb-3 form-control js-search-form__genre-select" name="genre" aria-label="Genre">
+              <option value="All">All</option>
+            </select>
+
+            <select class="mb-3 form-control js-search-form__sort-select" name="sort" aria-label="Sorting">
+              <option value="rating_desc" selected>Rating (hight to low)</option>
+              <option value="rating_asc">Rating (low to hight)</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+              <option value="year_desc">Year (new to old)</option>
+              <option value="year_asc">Year (old to new)</option>
+            </select>
+
+            <button class="btn btn-primary btn-block" type="sumbit">Search</button>
+          </form>
+
+          <ul class="list-group js-bookmarked-movies">
+
+          </ul>
+        </section>
+
+        <section class="col-md-8">
+          <h2 class="py-3 mt-3 h3 text-center">Search result</h2>
+
+          <div class="alert alert-info text-center">Use the form on the left to search for a movie</div>
+
+          <ul class="search-results row list-unstyled">
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade js-modal-movie" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title js-modal-movie-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body js-modal-movie-summary">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATES -->
+  <!-- Bookmarked movies list -->
+  <template id="bookmarked-movie-template">
+    <li class="js-bookmarked-movie list-group-item d-flex justify-content-between align-items-center">
+      <span class="js-bookmarked-movie-title">Patton Oswalt: Annihilation</span>
+
+      <button class="btn btn-danger ms-1 js-bookmarked-remove" type="button">Remove</button>
+    </li>
+  </template>
+
+  <!-- Search result template -->
+  <template id="search-result-template">
+    <li class="search-result__item js-search-result__item movie col-6 mb-3">
+      <div class="card">
+        <img class="movie__poster card-img-top" src="https://picsum.photos/id/50/300/200" alt="Random picture"
+          width="300" height="200">
+
+        <div class="card-body">
+          <h3 class="movie__title h5">The Incredible Hulk</h3>
+          <div class="card-text py-2">
+            <img src="./img/calendar.svg" alt="Calendar" width="25" height="25">
+            <span class="movie__year ps-2">2017</span>
+          </div>
+
+          <div class="card-text py-2">
+            <img src="./img/star.svg" alt="Star" width="25" height="25">
+            <span class="movie__rating ps-2">7.5</span>
+          </div>
+
+          <div class="card-text d-flex justify-content-between align-items-center">
+            <a class="movie__trailer-link" href="" target="_blank">Watch trailer</a>
+
+            <button class="btn btn-success js-movie-bookmark">Bookmark</button>
+
+            <button class="btn btn-primary js-movie-info-button" type="button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              More info
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="./js/movies.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

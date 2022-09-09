@@ -1,0 +1,7 @@
+.card-item {
+  width: 18rem;
+}
+
+.card-img {
+  object-fit: contain;
+}
